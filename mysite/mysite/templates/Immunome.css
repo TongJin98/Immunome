@@ -1,0 +1,50 @@
+@charset "UTF-8";
+body {
+  background-color: white;
+}
+
+
+h1 {
+  color: #FFCCCC;
+  front-size:36px;
+  margin-left: 20px;
+  height: 50px;
+  
+  float: center;
+  text-align:center;
+  padding-top: 50px;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+
+}
+
+h2 {
+  color: #FFCCCC;
+  front-size:36px;
+  margin-left: 20px;
+  height: 20px;
+  width: 50%;
+  
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+
+}
+p2 {
+ 
+  text-align:center;
+  front-size:20px;
+  color:black;
+  front-size:10px
+  height: 10px;
+  
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+
+
