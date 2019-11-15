@@ -5,13 +5,11 @@ body {
 
 
 h1 {
-  color: #FFCCCC;
-  front-size:36px;
-  margin-left: 20px;
+  color: #F89F83;
+  front-size:72px;
   height: 50px;
-  
-  float: center;
   text-align:center;
+  content-aligh:center;
   padding-top: 50px;
   padding-right: 0;
   padding-bottom: 0;
@@ -20,9 +18,9 @@ h1 {
 }
 
 h2 {
-  color: #FFCCCC;
+  color: #F89F83;
   front-size:36px;
-  margin-left: 20px;
+  margin-left: 100px;
   height: 20px;
   width: 50%;
   
@@ -33,10 +31,9 @@ h2 {
 
 }
 p2 {
- 
   text-align:center;
   front-size:20px;
-  color:black;
+  color:#F89F83;
   front-size:10px
   height: 10px;
   
