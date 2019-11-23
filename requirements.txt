@@ -1,0 +1,8 @@
+biopython==1.75
+Django==2.2.7
+gunicorn==20.0.0
+numpy==1.17.4
+pytz==2019.3
+sqlparse==0.3.0
+virtualenv==15.1.0
+xlwt==1.3.0
