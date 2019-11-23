@@ -124,6 +124,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TODO: Andy added code under here.
 # Activate Django-Heroku.
 django_heroku.settings(locals())
