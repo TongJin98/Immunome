@@ -2,7 +2,7 @@ from django.db import models
 
 class Anchor(models.Model):
     description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(default='')
+    document = models.FileField(default='',upload_to='VDJ_fasta')
 
     def __str__(self):
         return self.description

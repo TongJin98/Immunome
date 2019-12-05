@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Anchor
 from subprocess import Popen, PIPE, STDOUT
 from .forms import UploadFileForm
+from django.core.files.storage import FileSystemStorage
 
 #import different packages
 import sys
@@ -25,7 +26,16 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            data=form.cleaned_data.get('document')
+            #data=form.cleaned_data.get('myfile')
+
+            #
+            # fs = FileSystemStorage()
+            # filename = fs.save(myfile.name, myfile)
+            # uploaded_file_url = fs.url(filename)
+            #return render(request, 'upload.html', {
+            #     'uploaded_file_url': uploaded_file_url
+            # })
+
             #return redirect('process')
             return HttpResponse('success')
     else:

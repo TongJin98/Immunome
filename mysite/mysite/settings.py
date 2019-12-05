@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+#media upload directory
+MEDIA_URL = '/input/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'input')
 # Application definition
 
 INSTALLED_APPS = [
