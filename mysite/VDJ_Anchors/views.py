@@ -25,14 +25,14 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            #return HttpResponseRedirect('/success/url/')
-            return HttpResponse(form.document)
+            data=form.cleaned_data.get('document')
+            #return redirect('process')
+            return HttpResponse('success')
     else:
         form = UploadFileForm()
-    #return render(request, 'upload.html', {'form': form})
-    return render(request, 'upload.html',{
-        'form': form
-    })
+    return render(request, 'upload.html', {'form': form})
+
+# def process(request):
 
 
 # multiple files upload
@@ -52,20 +52,19 @@ def upload_file(request):
 #         else:
 #             return self.form_invalid(form)
 
-'''def test1(request):
-    command = ["pip", "-h"]
-    try:
-        process = Popen(command, stdout=PIPE, stderr=STDOUT)
-        output = process.stdout.read()
-        exitstatus = process.poll()
-        if (exitstatus==0):
-                result = "Helper message: "
-                return HttpResponse(result + str(output))
-        else:
-                result = "Fail"
-                return HttpResponse(result)
-
-    except Exception as e:
-                result = "Fail with exception"
-                return HttpResponse(result)
-'''
+# def test1(request):
+#     command = ["pip", "-h"]
+#     try:
+#         process = Popen(command, stdout=PIPE, stderr=STDOUT)
+#         output = process.stdout.read()
+#         exitstatus = process.poll()
+#         if (exitstatus==0):
+#                 result = "Helper message: "
+#                 return HttpResponse(result + str(output))
+#         else:
+#                 result = "Fail"
+#                 return HttpResponse(result)
+#
+#     except Exception as e:
+#                 result = "Fail with exception"
+#                 return HttpResponse(result)
