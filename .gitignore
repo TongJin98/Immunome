@@ -106,3 +106,4 @@ venv.bak/
 # remove Mac residue
 .DS_Store
 *.fasta
+*.ipynb

@@ -25,7 +25,7 @@ SECRET_KEY = '(=8jcwuzw$4g-91ao_^vzti7_2d2fp9a1*v9^kfph=$cu!5g+$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #media upload directory
 MEDIA_URL = '/input/'
