@@ -23,5 +23,4 @@ urlpatterns = [
     path('VDJ_Anchors/', include('VDJ_Anchors.urls')),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-
 ]
