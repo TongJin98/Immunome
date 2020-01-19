@@ -4,6 +4,7 @@ from .models import Anchor
 from subprocess import Popen, PIPE, STDOUT
 from .forms import UploadFileForm
 from django.core.files.storage import FileSystemStorage
+from django.core.files import File
 
 #import different packages
 import sys
@@ -26,14 +27,10 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            #data=request.FILES['document']
+            #find the latest object and parse 
+            f = Anchor.objects.latest('id').document.open(mode='r')
+            analyze_fasta(f)
 
-            # get url of file
-            fs = FileSystemStorage()
-            name = fs.save(request.FILES['document'].name, request.FILES['document'])
-            url = '/Users/pc/Desktop/Senior_Year/Senior Design/Immunome/mysite' + fs.url(name)
-            analyze_fasta(url)
-            #analyze_fasta(Anchor.objects.get(description='test5').document.read())
             #return redirect('process')
             return HttpResponse('success')
     else:
