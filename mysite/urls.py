@@ -19,9 +19,8 @@ from django.urls import include, path
 
 from . import views
 
-# Put this back into urlpatterns later: path('VDJ_Anchors/', include('VDJ_Anchors.urls')),
-
 urlpatterns = [
+    path('VDJ_Anchors/', include('VDJ_Anchors.urls')),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
 ]
