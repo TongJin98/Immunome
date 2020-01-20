@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
     
-# Put this back into INSTALLED_APPS later: 'VDJ_Anchors.apps.VdjAnchorsConfig',
 
 INSTALLED_APPS = [
+    'VDJ_Anchors.apps.VdjAnchorsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
