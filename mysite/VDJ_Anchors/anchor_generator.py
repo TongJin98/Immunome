@@ -15,6 +15,7 @@ import xlwt
 import os
 from . import parse_genes
 from . import write_files
+from django.http import HttpResponse
 
 
 def V_or_J_or_D(infile):
@@ -33,20 +34,18 @@ def analyze_fasta(infile,v_or_j_or_d):
     output_filename = "current_ouput_file"
     if v_or_j_or_d == "V" :
         output_data = parse_genes.parse_v_genes(infile)
-        print("This is a V file"+str(output_data['results'][0]))
-        write_files.generate_anchor_file(output_filename,
+        #print("This is a V file"+str(output_data['results'][0]))
+        response = write_files.generate_anchor_file(output_filename,
                  output_data['results'],
                  output_data['indexs'])
     elif v_or_j_or_d == "D" :
         output_data = parse_genes.parse_d_genes(infile)
-        print("This is a D file"+str(output_data['results'][0]))
-        write_files.generate_anchor_file(output_filename,
+        response = write_files.generate_anchor_file(output_filename,
                  output_data['results'],
                  output_data['indexs'])
     else:
         output_data = parse_genes.parse_j_genes(infile)
-        #print("This is a J file"+str(output_data['results'][0]))
-        print(output_data)
-        write_files.generate_anchor_file(output_filename,
+        response = write_files.generate_anchor_file(output_filename,
                  output_data['results'],
                  output_data['indexs'])
+    return response

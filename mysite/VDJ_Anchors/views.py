@@ -32,8 +32,13 @@ def upload_file(request):
             f = Anchor.objects.latest('id').document.open(mode='r')
             j = Anchor.objects.latest('id').document.open(mode='r')
             #f = Anchor.objects.latest('id').document.filename
-            anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
-            return HttpResponse('success')
+
+            return anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
+
+
+# def download_csv_data(request):
+#     response = HttpResponse(content_type = 'test/csv')
+#     response['Content-Disposition'] = 'attachment; filename = "ThePythonDjango.csv"'

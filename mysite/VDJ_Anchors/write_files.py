@@ -12,7 +12,7 @@ import math
 import re
 import xlwt
 import os
-
+from django.http import HttpResponse
 
 
 def generate_anchor_file(fileName, results, indexs):
@@ -24,14 +24,15 @@ def generate_anchor_file(fileName, results, indexs):
         results (list): list of results
         indexs (list): list of indexs
     '''
-    fileName = fileName + '.csv'
-    with open(fileName, 'w') as csv_file:
-        fieldnames = ['gene','anchor_index']
-        csv_writer = csv.DictWriter(csv_file,fieldnames=fieldnames,delimiter=';')
-        csv_writer.writeheader()
+    response = HttpResponse(content_type = 'test/csv')
+    response['Content-Disposition'] = 'attachment; filename = "GenerateAnchor.csv"'
+    fieldnames = ['gene','anchor_index']
+    csv_writer = csv.DictWriter(response,fieldnames=fieldnames,delimiter=';')
+    csv_writer.writeheader()
 
-        for result, index in zip(results, indexs):
-            csv_writer.writerow({'gene': result, 'anchor_index': index})
+    for result, index in zip(results, indexs):
+        csv_writer.writerow({'gene': result, 'anchor_index': index})
+    return response
 
 
 
