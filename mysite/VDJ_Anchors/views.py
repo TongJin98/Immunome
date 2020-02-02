@@ -26,14 +26,17 @@ def index(request):
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
+        files = request.FILES.getlist('document')
         if form.is_valid():
             form.save()
+            for fil in files:
+                print(fil)
             #find the latest object and parse
-            f = Anchor.objects.latest('id').document.open(mode='r')
-            j = Anchor.objects.latest('id').document.open(mode='r')
+                f = fil.open(mode='r').read().decode('utf=8')
+                j = fil.open(mode='r').read().decode('utf=8')
             #f = Anchor.objects.latest('id').document.filename
 
-            return anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
+                return anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})

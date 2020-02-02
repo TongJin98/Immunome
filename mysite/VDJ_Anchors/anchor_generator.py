@@ -27,6 +27,7 @@ def V_or_J_or_D(infile):
     elif re.split(string=first_line, pattern=r"[0-9\-]+\*")[0][-1] == 'D':
         v_or_j_or_d = 'D'
     else: print("Fasta file does not follow convetions")
+    return 'V'
     return v_or_j_or_d
 
 
