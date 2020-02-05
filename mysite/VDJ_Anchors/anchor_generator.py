@@ -53,11 +53,14 @@ def analyze_fasta(infile, v_or_j_or_d):
 
 
 def excel_for_multiple_fasta(infiles):
-    response = xlwt.Workbook()
+    wb = xlwt.Workbook()
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="contributions.xls"'
+
     for infile in infiles:
         #print(infile)
         #print(type(infile))
-        sheet = response.add_sheet(str(infile))
+        sheet = wb.add_sheet(str(infile))
         #print(sheet)
 
         if V_or_J_or_D(infile) == 'V':
@@ -70,5 +73,6 @@ def excel_for_multiple_fasta(infiles):
             output_data = parse_genes.parse_j_genes(infile)
             write_files.write_excel_sheet_j(sheet, output_data)
 
-    response.save('contributions.xls')
+    wb.save(response)
+    #response.save('contributions.xls')
     return response
