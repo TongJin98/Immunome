@@ -19,7 +19,7 @@ from django.http import HttpResponse
 
 
 def V_or_J_or_D(infile):
-    first_line = [a for a in infile][0]
+    first_line = str([a for a in infile][0])
     if re.split(string=first_line, pattern=r"[0-9\-]+\*")[0][-1] == 'J':
         v_or_j_or_d = 'J'
     elif re.split(string=first_line, pattern=r"[0-9\-]+\*")[0][-1] == 'V':

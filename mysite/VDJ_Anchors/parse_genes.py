@@ -13,6 +13,7 @@ import math
 import re
 import xlwt
 import os
+import io
 
 
 
@@ -40,7 +41,11 @@ def parse_j_genes(infile):
             'alleles' : []
             }
 
-    for seq_record in SeqIO.parse(infile, "fasta"):
+    #return the whole file as string
+    infile = infile.open(mode='r').read().decode('utf=8')
+    output = io.StringIO(infile)
+
+    for seq_record in SeqIO.parse(output, "fasta"):
         ind = []
         extra_indexs = []
         three_amino_acids = []
@@ -152,7 +157,11 @@ def parse_d_genes(infile):
             'alleles' : []
             }
 
-    for seq_record in SeqIO.parse(infile, "fasta"):
+    #return the whole file as string
+    infile = infile.open(mode='r').read().decode('utf=8')
+    output = io.StringIO(infile)
+
+    for seq_record in SeqIO.parse(output, "fasta"):
         three_prime_extras = []
         five_prime_extras = []
         three_amino_acids = []
@@ -246,7 +255,11 @@ def parse_v_genes(infile):
             'alleles' : []
             }
 
-    for seq_record in SeqIO.parse(infile, "fasta"):
+    #return the whole file as string
+    infile = infile.open(mode='r').read().decode('utf=8')
+    output = io.StringIO(infile)
+
+    for seq_record in SeqIO.parse(output, "fasta"):
         floor = math.floor(len(seq_record.seq)/3)
         index = len(seq_record.seq) - (floor*3)
         if index != 0:

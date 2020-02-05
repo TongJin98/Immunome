@@ -29,13 +29,10 @@ def upload_file(request):
         files = request.FILES.getlist('document')
         if form.is_valid():
             form.save()
+            #find each object and parse
             for fil in files:
-                #find each object and parse
-                f = fil.open(mode='r').read().decode('utf=8')
-                j = fil.open(mode='r').read().decode('utf=8')
                 #f = Anchor.objects.latest('id').document.open(mode='r')
-                print(type(f))
-                return anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
+                return anchor_generator.analyze_fasta(fil, anchor_generator.V_or_J_or_D(fil))
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
