@@ -107,3 +107,4 @@ venv.bak/
 .DS_Store
 *.fasta
 *.csv
+*.txt

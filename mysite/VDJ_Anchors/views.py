@@ -30,12 +30,11 @@ def upload_file(request):
         if form.is_valid():
             form.save()
             for fil in files:
-                print(fil)
-            #find the latest object and parse
+                #find each object and parse
                 f = fil.open(mode='r').read().decode('utf=8')
                 j = fil.open(mode='r').read().decode('utf=8')
-            #f = Anchor.objects.latest('id').document.filename
-
+                #f = Anchor.objects.latest('id').document.open(mode='r')
+                print(type(f))
                 return anchor_generator.analyze_fasta(f, anchor_generator.V_or_J_or_D(j))
     else:
         form = UploadFileForm()

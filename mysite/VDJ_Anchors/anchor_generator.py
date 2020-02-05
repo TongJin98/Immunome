@@ -27,11 +27,10 @@ def V_or_J_or_D(infile):
     elif re.split(string=first_line, pattern=r"[0-9\-]+\*")[0][-1] == 'D':
         v_or_j_or_d = 'D'
     else: print("Fasta file does not follow convetions")
-    return 'V'
     return v_or_j_or_d
 
 
-def analyze_fasta(infile,v_or_j_or_d):
+def analyze_fasta(infile, v_or_j_or_d):
     output_filename = "current_ouput_file"
     if v_or_j_or_d == "V" :
         output_data = parse_genes.parse_v_genes(infile)
