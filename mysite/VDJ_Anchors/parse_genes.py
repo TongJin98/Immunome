@@ -44,6 +44,7 @@ def parse_j_genes(infile):
     #return the whole file as string
     infile = infile.open(mode='r').read().decode('utf=8')
     output = io.StringIO(infile)
+    print(type(output))
 
     for seq_record in SeqIO.parse(output, "fasta"):
         ind = []
@@ -127,6 +128,7 @@ def parse_j_genes(infile):
             data['error_results'].append(seq_record.description)
             data['sequence'].append(seq_record.seq)
 
+    print(data)
     return data
 
 
@@ -160,6 +162,7 @@ def parse_d_genes(infile):
     #return the whole file as string
     infile = infile.open(mode='r').read().decode('utf=8')
     output = io.StringIO(infile)
+    print(type(output))
 
     for seq_record in SeqIO.parse(output, "fasta"):
         three_prime_extras = []
@@ -226,6 +229,7 @@ def parse_d_genes(infile):
         data['sequence_frame_three'].append(three_amino_acids[2])
         data['three_prime_extra_frame_three'].append(three_prime_extras[2])
 
+    print(data)
     return data
 
 
@@ -258,6 +262,7 @@ def parse_v_genes(infile):
     #return the whole file as string
     infile = infile.open(mode='r').read().decode('utf=8')
     output = io.StringIO(infile)
+    print(type(output))
 
     for seq_record in SeqIO.parse(output, "fasta"):
         floor = math.floor(len(seq_record.seq)/3)
@@ -308,4 +313,5 @@ def parse_v_genes(infile):
             data['error_results'].append(seq_record.description)
             data['sequence'].append(seq_record.seq)
 
+    print(data)
     return data

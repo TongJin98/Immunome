@@ -29,10 +29,11 @@ def upload_file(request):
         files = request.FILES.getlist('document')
         if form.is_valid():
             form.save()
+            return anchor_generator.excel_for_multiple_fasta(files)
             #find each object and parse
-            for fil in files:
-                #f = Anchor.objects.latest('id').document.open(mode='r')
-                return anchor_generator.analyze_fasta(fil, anchor_generator.V_or_J_or_D(fil))
+            # for fil in files:
+            #     #f = Anchor.objects.latest('id').document.open(mode='r')
+            #     return anchor_generator.analyze_fasta(fil, anchor_generator.V_or_J_or_D(fil))
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})

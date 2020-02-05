@@ -32,6 +32,7 @@ def V_or_J_or_D(infile):
 
 def analyze_fasta(infile, v_or_j_or_d):
     output_filename = "current_ouput_file"
+
     if v_or_j_or_d == "V" :
         output_data = parse_genes.parse_v_genes(infile)
         #print("This is a V file"+str(output_data['results'][0]))
@@ -48,4 +49,26 @@ def analyze_fasta(infile, v_or_j_or_d):
         response = write_files.generate_anchor_file(output_filename,
                  output_data['results'],
                  output_data['indexs'])
+    return response
+
+
+def excel_for_multiple_fasta(infiles):
+    response = xlwt.Workbook()
+    for infile in infiles:
+        #print(infile)
+        #print(type(infile))
+        sheet = response.add_sheet(str(infile))
+        #print(sheet)
+
+        if V_or_J_or_D(infile) == 'V':
+            output_data = parse_genes.parse_v_genes(infile)
+            write_files.write_excel_sheet_v(sheet, output_data)
+        elif V_or_J_or_D(infile) == 'D':
+            output_data = parse_genes.parse_d_genes(infile)
+            write_files.write_excel_sheet_d(sheet, output_data)
+        else:
+            output_data = parse_genes.parse_j_genes(infile)
+            write_files.write_excel_sheet_j(sheet, output_data)
+
+    response.save('contributions.xls')
     return response
