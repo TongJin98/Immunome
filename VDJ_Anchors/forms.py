@@ -1,9 +1,5 @@
 from django import forms
-from .models import Anchor
 
-class UploadFileForm(forms.ModelForm):
-    description=forms.CharField()
-    document = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
-    class Meta:
-        model = Anchor
-        fields = ('description', 'document')
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
