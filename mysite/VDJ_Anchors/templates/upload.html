@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" href="file:///Users/emily/Desktop/Senior%20Design/Immunome.css" >
+  <style>
+  @charset "UTF-8";
+body {
+  background-color: white;
+}
+
+
+h1 {
+  color: #F89F83;
+  front-size:72px;
+  height: 50px;
+  text-align:center;
+  content-aligh:center;
+  padding-top: 50px;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+
+}
+
+h2 {
+  color: #F89F83;
+  front-size:36px;
+
+  text-align:left;
+  content-align:left;
+  margin-left: 10px;
+
+}
+p2 {
+  text-align:center;
+  front-size:20px;
+  color:#F89F83;
+  front-size:10px;
+  height: 10px;
+
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+  hr {
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: -10px;;
+  margin-right: -10px;
+  border-style: inset;
+  border-width: 1px;
+  color:#F89F83;
+}
+  div.a{
+  background-color: #FCEDD6;
+  list-style-type: none;
+  margin: -10px;
+  padding: 40px;
+  }
+  div.a li a {
+  display: inline-block;
+  float: right;
+  text-decoration: none;
+  font-size: 20px;
+  color: #BB5F42;
+  padding: 10px;
+
+}
+div.a li a:hover {
+  background-color: #FCEDD6;
+  color: #F89F83;
+}
+
+div.b{
+  background-color: #FCEDD6;
+  list-style-type: none;
+  margin: -10px;
+  padding: 25px;
+  height: 5px;
+
+}
+
+div.b li a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  color: #BB5F42;
+  padding-left: 20px;
+  padding-right: 20px;
+  float:left;
+  position:relative;
+
+}
+
+/* Change the link color on hover */
+div.b li a:hover {
+  background-color: #FCEDD6;
+  color: #F89F83;
+}
+
+div.c{
+  align-content: center;
+  text-align:center;
+  background-color: #FCEDD6;
+  list-style-type: none;
+  width: 200px;
+  padding: 40px;
+  position: relative;
+
+  }
+div.c li a{
+color: #BB5F42;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+div.c li a:hover {
+  background-color: #FCEDD6;
+  color: #F89F83;
+}
+
+</style>
+
+
+<div class="a">
+<li><b><font size="10" color = #F89F83>Immunome</font></b></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#tools">Tools</a></li>
+  <li><a href="#contact">Contact Us</a></li>
+  </div>
+
+
+
+    <link rel="apple-touch-icon" href="./peachhh.png">
+    <link rel="icon" sizes="192x192" href="./peachhh.png">
+    <link rel="shortcut icon" href="./peachhh.png">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="./peachhh.png">
+
+    <title> Immunome</title>
+
+
+
+
+  </head>
+
+
+  <body id="homepage" class="homepage">
+
+    <div role="banner" id="top">
+
+</div>
+
+
+	<h1><center>VDJ Anchor Generator</center></h1>
+	<div align = "center">
+
+	<h2><center>Introduction</center></h2>
+
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+<hr>
+<div class="b">
+    <li><a href="./peachhh.png">About Immunome</a></li>
+    <li><a href="./peachhh.png">Getting Started with Immunome</a></li>
+    <li><a href="./peachhh.png">Team Organization</a></li>
+
+</div>
