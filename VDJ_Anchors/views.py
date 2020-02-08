@@ -1,71 +1,44 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import VGene
+from .models import Anchor
 from subprocess import Popen, PIPE, STDOUT
 from .forms import UploadFileForm
+from django.core.files.storage import FileSystemStorage
+from django.core.files import File
+
+#import different packages
+import sys
+from Bio import SeqIO
+import csv
+import math
+import re
+import xlwt
+import os
+from . import anchor_generator
 
 
 def index(request):
     return render(request, 'index.html')
     #return HttpResponse("Anchors Generator for Human Vaccine Project")
 
-'''def test1(request):
-    command = ["pip", "-h"]
-    try:
-        process = Popen(command, stdout=PIPE, stderr=STDOUT)
-        output = process.stdout.read()
-        exitstatus = process.poll()
-        if (exitstatus==0):
-                result = "Helper message: "
-                return HttpResponse(result + str(output))
-        else:
-                result = "Fail"
-                return HttpResponse(result)
 
-    except Exception as e:
-                result = "Fail with exception"
-                return HttpResponse(result)
-
-
-def test2(request):
-    command = ["python3", "/Users/axns/Documents/GitHub/HVP_anchors_generator/anchors_generator.py", "-i", "/Users/axns/Documents/GitHub/HVP_anchors_generator/IMGT", "-o", "/Users/axns/Desktop/untitled folder"]
-
-    try:
-        process = Popen(command, stdout=PIPE, stderr=STDOUT)
-        output = process.stdout.read()
-        exitstatus = process.poll()
-        if (exitstatus==0):
-                result = "Helper message: "
-                return HttpResponse(result + str(output))
-        else:
-                result = "Fail"
-                return HttpResponse(result)
-
-    except Exception as e:
-                result = "Fail with exception"
-                return HttpResponse(result)
-
-
-def test3(request):
-
-    Anchor.main("-i", "/Users/axns/Documents/GitHub/HVP_anchors_generator/IMGT", "-o", "/Users/axns/Desktop/untitled folder")
-
+# single file upload
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
+        files = request.FILES.getlist('document')
         if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
+            form.save()
+            return anchor_generator.excel_for_multiple_fasta(files)
+            #find each object and parse
+            # for fil in files:
+            #     #f = Anchor.objects.latest('id').document.open(mode='r')
+            #     return anchor_generator.analyze_fasta(fil, anchor_generator.V_or_J_or_D(fil))
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
 
-def parse_genes(request):
 
-
-
-
-
-
-'''
-
+# def download_csv_data(request):
+#     response = HttpResponse(content_type = 'test/csv')
+#     response['Content-Disposition'] = 'attachment; filename = "ThePythonDjango.csv"'

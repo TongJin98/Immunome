@@ -105,3 +105,9 @@ venv.bak/
 
 # remove Mac residue
 .DS_Store
+*.fasta
+*.csv
+*.txt
+*.xls
+
+!requirements.txt
