@@ -46,7 +46,6 @@ p2 {
   hr {
   display: block;
   margin-top: 50px;
-  margin-bottom: 20px;
   margin-left: -10px;;
   margin-right: -10px;
   border-style: inset;
@@ -156,13 +155,13 @@ div.c li a:hover {
 	<h1><center>VDJ Anchor Generator</center></h1>
 	<div align = "center">
 
-	<h2><center>Introduction</center></h2>
+	<h2><center>Your output is ready for download</center></h2>
 
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <button type="submit">Download Results</button>
   </form>
 
 <hr>
