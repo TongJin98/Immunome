@@ -43,11 +43,14 @@ p2 {
   padding-bottom: 0;
   padding-left: 0;
 }
-  hr.new1 {
+  hr {
+  display: block;
   margin-top: 50px;
   margin-left: -10px;;
   margin-right: -10px;
-  cborder-top: 3px solid white;
+  border-style: inset;
+  border-width: 1px;
+  color:#F89F83;
 }
   div.a{
   background-color: #FCEDD6;
@@ -151,11 +154,16 @@ div.c li a:hover {
 
 	<h1><center>VDJ Anchor Generator</center></h1>
 	<div align = "center">
-<div class = "c">
-	<li><a href="{% url 'upload' %}">Get started with the tool</a></li>     
-</div>
-<hr class = "new1">
 
+	<h2><center>Your output is ready for download</center></h2>
+
+
+  <form method="post" enctype="multipart/form-data">
+    
+    <button type="submit">Download Results</button>
+  </form>
+
+<hr>
 <div class="b">
     <li><a href="./peachhh.png">About Immunome</a></li>
     <li><a href="./peachhh.png">Getting Started with Immunome</a></li>
