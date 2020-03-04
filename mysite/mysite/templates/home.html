@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <link rel="stylesheet" href="file:///Users/emily/Desktop/Senior%20Design/Immunome.css" >
-  <style>
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/Immunome.css' %}" >  <style>
   @charset "UTF-8";
 body {
   background-color: white;
@@ -127,14 +127,14 @@ div.c li a:hover {
   </div>
 
 
-
-    <link rel="apple-touch-icon" href="./peachhh.png">
-    <link rel="icon" sizes="192x192" href="./peachhh.png">
-    <link rel="shortcut icon" href="./peachhh.png">
+    {% load static %}
+    <link rel="apple-touch-icon" href="{% static 'Peachhh.png' %}">
+    <link rel="icon" sizes="192x192" href="{% static 'Peachhh.png' %}">
+    <link rel="shortcut icon" href="{% static 'Peachhh.png' %}">
     <meta name="msapplication-TileColor" content="#113228">
-    <meta name="msapplication-TileImage" content="./peachhh.png">
+    <meta name="msapplication-TileImage" content="{% static 'Peachhh.png' %}">
 
-    <title> Immunome</title>
+    <title>Immunome</title>
 
 
 
@@ -152,13 +152,14 @@ div.c li a:hover {
 	<h1><center>VDJ Anchor Generator</center></h1>
 	<div align = "center">
 <div class = "c">
-	<li><a href="{% url 'upload' %}">Get started with the tool</a></li>     
+	<li><a href="{% url 'upload' %}">Get started with the tool</a></li>
 </div>
 <hr class = "new1">
 
 <div class="b">
-    <li><a href="./peachhh.png">About Immunome</a></li>
-    <li><a href="./peachhh.png">Getting Started with Immunome</a></li>
-    <li><a href="./peachhh.png">Team Organization</a></li>
+    {% load static %}
+    <li><a href="{% static 'Peachhh.png' %}">About Immunome</a></li>
+    <li><a href="{% static 'Peachhh.png' %}">Getting Started with Immunome</a></li>
+    <li><a href="{% static 'Peachhh.png' %}">Team Organization</a></li>
 
 </div>

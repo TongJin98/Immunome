@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <link rel="stylesheet" href="file:///Users/emily/Desktop/Senior%20Design/Immunome.css" >
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/Immunome.css' %}" >
   <style>
   @charset "UTF-8";
 body {
@@ -123,21 +124,21 @@ div.c li a:hover {
 
 
 <div class="a">
-<a href ="/Users/emily/Documents/GitHub/Immunone-/mysite/mysite/templates/home.html"><li><b><font size="10" color = #F89F83>Immunome</font></b></li>
+<a href ="{% url 'home' %}"><li><b><font size="10" color = #F89F83>Immunome</font></b></li>
   <li><a href="#overview">Overview</a></li>
   <li><a href="#tools">Tools</a></li>
   <li><a href="#contact">Contact Us</a></li>
   </div>
 
 
-
-    <link rel="apple-touch-icon" href="./peachhh.png">
-    <link rel="icon" sizes="192x192" href="./peachhh.png">
-    <link rel="shortcut icon" href="./peachhh.png">
+    {% load static %}
+    <link rel="apple-touch-icon" href="{% static 'Peachhh.png' %}">
+    <link rel="icon" sizes="192x192" href="{% static 'Peachhh.png' %}">
+    <link rel="shortcut icon" href="{% static 'Peachhh.png' %}">
     <meta name="msapplication-TileColor" content="#113228">
-    <meta name="msapplication-TileImage" content="./peachhh.png">
+    <meta name="msapplication-TileImage" content="{% static 'Peachhh.png' %}">
 
-    <title> Immunome</title>
+    <title>Immunome</title>
 
 
 
@@ -153,7 +154,8 @@ div.c li a:hover {
 
 
 	<h1><center>VDJ Anchor Generator</center></h1>
- <center><img src= "Peachy Chains.png" width="400" height="200"></center>
+  {% load static %}
+  <center><img src= "{% static 'Peachy Chains.png' %}" width="400" height="300"></center>
 	<div align = "center">
 
 
@@ -165,8 +167,9 @@ div.c li a:hover {
 
 <hr>
 <div class="b">
-    <li><a href="./peachhh.png">About Immunome</a></li>
-    <li><a href="./peachhh.png">Getting Started with Immunome</a></li>
-    <li><a href="./peachhh.png">Team Organization</a></li>
+    {% load static %}
+    <li><a href="{% static 'Peachhh.png' %}">About Immunome</a></li>
+    <li><a href="{% static 'Peachhh.png' %}">Getting Started with Immunome</a></li>
+    <li><a href="{% static 'Peachhh.png' %}">Team Organization</a></li>
 
 </div>

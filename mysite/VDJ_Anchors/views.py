@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Anchor
 from subprocess import Popen, PIPE, STDOUT
-from .forms import UploadFileForm
+from .forms import UploadFileForm, SelectForm
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 
@@ -25,11 +25,14 @@ def index(request):
 # single file upload
 def upload_file(request):
     if request.method == 'POST':
+        #form = SelectForm()
         form = UploadFileForm(request.POST, request.FILES)
+        #print(form['Output_Formats']['choices'])
         if form.is_valid():
             form.save()
             return success(request)
     else:
+        # form = SelectForm()
         form = UploadFileForm()
     return render(request, 'upload.html', {'form': form})
 
