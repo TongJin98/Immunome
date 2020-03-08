@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
   {% load static %}
-  <link rel="stylesheet" href="{% static '/Immunome.css' %}" >  <style>
+  <link rel="stylesheet" href="{% static '/Immunome.css' %}" >
+
+<style>
   @charset "UTF-8";
 body {
   background-color: white;
@@ -11,10 +13,10 @@ body {
 
 h1 {
   color: #F89F83;
-  front-size:72px;
+  font-size:72px;
   height: 50px;
   text-align:center;
-  content-aligh:center;
+  align-content:center;
   padding-top: 50px;
   padding-right: 0;
   padding-bottom: 0;
@@ -23,19 +25,20 @@ h1 {
 }
 
 h2 {
-  color: #F89F83;
-  front-size:36px;
-
-  text-align:left;
-  content-align:left;
-  margin-left: 10px;
+  color: black;
+  font-size:20px;
+  align-content:center;
+  padding-top: 50px;
+  padding-right: 0;
+  padding-bottom: 150px;
+  padding-left: 0;
 
 }
 p2 {
   text-align:center;
-  front-size:20px;
+  font-size:20px;
   color:#F89F83;
-  front-size:10px;
+  font-size:10px;
   height: 10px;
 
   padding-top: 0;
@@ -47,7 +50,7 @@ p2 {
   margin-top: 50px;
   margin-left: -10px;;
   margin-right: -10px;
-  cborder-top: 3px solid white;
+  border-top: 3px solid white;
 }
   div.a{
   background-color: #FCEDD6;
@@ -150,10 +153,15 @@ div.c li a:hover {
 
 
 	<h1><center>VDJ Anchor Generator</center></h1>
+
 	<div align = "center">
-<div class = "c">
-	<li><a href="{% url 'upload' %}">Get started with the tool</a></li>
-</div>
+    <h2 align = "justify">The VDJ anchor generator takes genetic sequence of V, D, or J genes from the CDR3 region in immunoglobulins to generate the sequence of amino acids associated with the genetic sequence based on the unique conserved positions on the genes.</h2>
+
+    <div class = "c">
+	     <li><a href="{% url 'upload' %}">Get started with the tool</a></li>
+    </div>
+  </div>
+
 <hr class = "new1">
 
 <div class="b">
